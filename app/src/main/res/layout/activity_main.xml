@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
         android:layout_margin="15dp"
-        android:hint="Address" />
+        android:hint="Patient ID" />
 
     <EditText
         android:id="@+id/symptoms"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/address"
         android:layout_margin="15dp"
-        android:hint="Symptoms" />
+        android:hint="Medicine Name" />
 
     <EditText
         android:id="@+id/prescription"
@@ -46,13 +46,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/symptoms"
         android:layout_margin="15dp"
-        android:hint="Prescription" />
+        android:hint="Slot No." />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="51dp"
         android:layout_below="@id/prescription"
-        android:layout_marginTop="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="167dp"
+        android:layout_marginBottom="189dp"
         android:gravity="center">
 
         <Button
@@ -74,6 +76,90 @@
             android:text="History"
             android:textColor="#ffffff" />
     </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/null"
+        android:layout_alignStart="@+id/prescription"
+        android:layout_alignTop="@+id/prescription"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="294dp"
+        android:layout_marginBottom="133dp"
+        android:text="Morning" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/null"
+        android:layout_alignTop="@+id/prescription"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginBottom="282dp"
+        android:text="Noon" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/null"
+        android:layout_alignTop="@+id/prescription"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="279dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="282dp"
+        android:text="Night" />
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/multiAutoCompleteTextView3"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/null"
+        android:layout_below="@+id/prescription"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="284dp"
+        android:layout_marginBottom="30dp"
+        android:text="Dose" />
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/multiAutoCompleteTextView4"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/null"
+        android:layout_below="@+id/prescription"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="279dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="52dp"
+        android:text="Dose" />
+
+    <MultiAutoCompleteTextView
+        android:id="@+id/multiAutoCompleteTextView5"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/null"
+        android:layout_below="@+id/prescription"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="149dp"
+        android:layout_marginBottom="51dp"
+        android:text="Dose" />
 
 
 </RelativeLayout>

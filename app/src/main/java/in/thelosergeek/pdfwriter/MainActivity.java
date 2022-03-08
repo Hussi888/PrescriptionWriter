@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         paint.setColor(Color.BLACK);
         canvas.drawText("Patient Name:",30,350,paint);
 
-        canvas.drawText("Address:",620,350,paint);
+        canvas.drawText("Patient ID:",620,350,paint);
         paint.setTextAlign(Paint.Align.RIGHT);
         paint.setTextAlign(Paint.Align.LEFT);
 
@@ -121,10 +121,10 @@ public class MainActivity extends AppCompatActivity {
 
         paint.setTextAlign(Paint.Align.LEFT);
         paint.setColor(Color.BLACK);
-        canvas.drawText("Symptoms:",30,450,paint);
+        canvas.drawText("Medicine Name:",30,450,paint);
         canvas.drawText(cursor.getString(4),30,480,paint);
 
-        canvas.drawText("Prescription:",620,450,paint);
+        canvas.drawText("Slot No.:",620,450,paint);
         canvas.drawText(cursor.getString(5),620,480,paint);
 
         paint.setTextAlign(Paint.Align.RIGHT);
