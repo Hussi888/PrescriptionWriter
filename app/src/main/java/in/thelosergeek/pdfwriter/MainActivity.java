@@ -11,8 +11,11 @@ import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.File;
@@ -24,6 +27,9 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
     Button save, print;
     EditText name,address,news,prescription,symptoms;
+    CheckBox morning, noon, night;
+    Spinner dose1,dose2, dose3;
+    ArrayAdapter<String> adapter;
 
     DatabaseClass databaseClass;
     SQLiteDatabase sqLiteDatabase;
@@ -43,6 +49,25 @@ public class MainActivity extends AppCompatActivity {
         symptoms = findViewById(R.id.symptoms);
         address = findViewById(R.id.address);
 
+        morning = (CheckBox) findViewById(R.id.morning);
+        noon = (CheckBox) findViewById(R.id.noon);
+        night = (CheckBox) findViewById(R.id.night);
+
+        //get the spinner from the xml.
+        dose1 = findViewById(R.id.dose1);
+        dose2 = findViewById(R.id.dose2);
+        dose3 = findViewById(R.id.dose3);
+
+        //create a list of items for the spinner.
+        String[] doses = new String[]{"1", "2", "3"};
+        //create an adapter to describe how the items are displayed, adapters are used in several places in android.
+        //There are multiple variations of this, but this is the basic variant.
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, doses);
+        //set the spinners adapter to the previously created one.
+        dose1.setAdapter(adapter);
+        dose2.setAdapter(adapter);
+        dose3.setAdapter(adapter);
+
         databaseClass = new DatabaseClass(this);
         sqLiteDatabase = databaseClass.getWritableDatabase();
 
@@ -53,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
                 String userAddress = String.valueOf(address.getText());
                 String userSymptoms = String.valueOf(symptoms.getText());
                 String userPrescription = String.valueOf(prescription.getText());
+                String morningString = "morning";
+                String noonString = "noon";
+                String nightString = "night";
                 databaseClass.insert(userName,userAddress,date.getTime(),userSymptoms,userPrescription);
 
                 Toast.makeText(getApplicationContext(),"Saved in Storage", Toast.LENGTH_SHORT).show();
@@ -126,6 +154,22 @@ public class MainActivity extends AppCompatActivity {
 
         canvas.drawText("Slot No.:",620,450,paint);
         canvas.drawText(cursor.getString(5),620,480,paint);
+
+        paint.setTextAlign(Paint.Align.RIGHT);
+        canvas.drawText("Dose Times:",200,550,paint);
+        paint.setTextAlign(Paint.Align.RIGHT);
+        if (morning.isChecked()) {
+            canvas.drawText("Morning:",200,580,paint);
+            canvas.drawText(dose1.getSelectedItem().toString(), 240, 580, paint);
+        }
+        if (noon.isChecked()) {
+            canvas.drawText("Noon:",200,620,paint);
+            canvas.drawText(dose2.getSelectedItem().toString(), 240, 620, paint);
+        }
+        if (night.isChecked()) {
+            canvas.drawText("Night:",200,660,paint);
+            canvas.drawText(dose3.getSelectedItem().toString(), 240, 660, paint);
+        }
 
         paint.setTextAlign(Paint.Align.RIGHT);
 

@@ -17,7 +17,7 @@ public class DatabaseClass extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createTable = "create table myTable(invoiceNo INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, address STRING, date INTEGER, symptoms STRING, prescription SRTING);";
+        String createTable = "create table myTable(invoiceNo INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, address STRING, date INTEGER, symptoms STRING);";
         db.execSQL(createTable);
     }
 
